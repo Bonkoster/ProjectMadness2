@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui" >
+  <h:head>
+  	<title>Madness Combat fan-site: Home Page</title>
+  </h:head>
+  <h:body>
+	<h:form >
+		<p:growl id="shar" showDetail="true"/>
+	<p:layout style="min-width:1300px;min-height:1000px;">
+	<p:layoutUnit position="north" resizable="true" size="60" minSize="60" maxSize="100">
+	<div align="center" style="font-size: xx-large; font-family: sans-serif; ">
+		<h:outputText value="Madness Combat: Fan-Site" />
+	</div>
+    </p:layoutUnit>
+    <p:layoutUnit resizable="true" position="center" size="600" minSize="100" maxSize="700" >
+        <p:menubar style="height:50px;width:300px; z-index:5;">
+			<p:menuitem value="Characters" outcome="Index"></p:menuitem>
+			<p:menuitem value="Gallery" outcome="Gallery"></p:menuitem>
+			<p:submenu label="Cinema">
+			  <p:menuitem value="Episode 1" actionListener="#{Cinema.uiEpisode(0)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 2"  actionListener="#{Cinema.uiEpisode(1)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 3"  actionListener="#{Cinema.uiEpisode(2)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 4"  actionListener="#{Cinema.uiEpisode(3)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 5"  actionListener="#{Cinema.uiEpisode(4)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 5.5"  actionListener="#{Cinema.uiEpisode(5)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 6"  actionListener="#{Cinema.uiEpisode(6)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 6.5" actionListener="#{Cinema.uiEpisode(7)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 7"  actionListener="#{Cinema.uiEpisode(8)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 7.5"  actionListener="#{Cinema.uiEpisode(9)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 8" actionListener="#{Cinema.uiEpisode(10)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 9"  actionListener="#{Cinema.uiEpisode(11)}" update="mov" ajax="false"></p:menuitem>
+			  <p:menuitem value="Episode 10"  actionListener="#{Cinema.uiEpisode(12)}" update="mov" ajax="false"></p:menuitem>
+			</p:submenu>
+			<p:menuitem value="About Me!" onclick="PF('dlg2').show();"></p:menuitem>
+		</p:menubar>
+		<p:separator></p:separator>
+		<p:media style="z-index:2;" id="mov" value="${Cinema.urler}" width="420" height="315" player="flash"/>
+    </p:layoutUnit>
+    <p:layoutUnit resizable="true" position="east" size="400" minSize="100" maxSize="500" closable="true">
+    <p:clock></p:clock>
+    <p:separator></p:separator>
+    <p:calendar mode="inline"></p:calendar>
+    </p:layoutUnit>
+    <p:layoutUnit position="south" size="100" minSize="100" maxSize="300">
+    <div align="center">
+     <h:outputText value="Powered by JSF,Primefaces,Facelets"></h:outputText>
+     <br />
+     <h:outputText value="2016"></h:outputText>
+     </div>
+    </p:layoutUnit>
+	</p:layout>			
+	</h:form>
+	<p:dialog header="Modal Dialog" hideEffect="bounce" showEffect="bounce" widgetVar="dlg2" modal="true" height="100">
+    <h:outputText value="This is just JSF-Primefaces site about madness combat,Enjoy!" />
+</p:dialog> 
+  </h:body>
+</html>
